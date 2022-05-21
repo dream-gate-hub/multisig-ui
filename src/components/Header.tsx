@@ -126,7 +126,7 @@ function SerumLogoButton() {
               height: "35px",
             }}
             alt="Logo"
-            src="http://dex.projectserum.com/static/media/logo.49174c73.svg"
+            src="https://assets.website-files.com/6163b94b432ce93a0408c6d2/6163ba7839a719683dbdd753_logo.svg"
           />
         </div>
       </Button>
@@ -248,7 +248,7 @@ function UserSelector() {
       renderValue={() => {
         return (
           <Typography style={{ overflow: "hidden" }}>
-            {wallet.publicKey.toString()}
+            {wallet.publicKey?.toString()}
           </Typography>
         );
       }}

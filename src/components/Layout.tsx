@@ -27,8 +27,7 @@ export default function Layout(props: PropsWithChildren<Props>) {
         <RiskBar />
         <Header />
       </div>
-      <div
-        style={{
+      <div style={{
           width: "100%",
           marginTop: "94px",
           flex: 1,

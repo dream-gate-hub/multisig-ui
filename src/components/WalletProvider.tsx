@@ -12,6 +12,7 @@ import Wallet from "@project-serum/sol-wallet-adapter";
 import { Program, Provider } from "@project-serum/anchor";
 import { State as StoreState } from "../store/reducer";
 import MultisigIdl from "../idl";
+import {PhantomWalletAdapter} from "../utils/phantom";
 
 export function useWallet(): WalletContextValues {
   const w = useContext(WalletContext);
@@ -45,7 +46,9 @@ export default function WalletProvider(
       commitment: "recent",
     };
     const connection = new Connection(network.url, opts.preflightCommitment);
-    const wallet = new Wallet(walletProvider, network.url);
+    // const wallet = new Wallet(walletProvider, network.url);
+    const wallet = new PhantomWalletAdapter()
+    //@ts-ignore
     const provider = new Provider(connection, wallet, opts);
 
     const multisigClient = new Program(
