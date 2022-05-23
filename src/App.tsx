@@ -48,7 +48,6 @@ function App() {
 }
 
 function MultisigPage() {
-  console.log("MultisigPage")
   const { hash } = window.location;
   if (hash) {
     window.location.href = `/#/${networks.mainnet.multisigUpgradeAuthority!.toString()}`;
@@ -58,7 +57,6 @@ function MultisigPage() {
 }
 
 export function MultisigInstancePage() {
-  console.log("MultisigInstancePage")
   const history = useHistory();
   const location = useLocation();
   const path = location.pathname.split("/");

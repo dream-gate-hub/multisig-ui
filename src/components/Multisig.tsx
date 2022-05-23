@@ -655,7 +655,6 @@ function ixLabel(tx: any, multisigClient: any) {
         const dataLayout = BufferLayout.struct([BufferLayout.u8('instruction'), uint64('amount')]);
 
         const data = dataLayout.decode(tx.account.data)
-        console.log("data",data)
         return (
             <ListItemText
                 // @ts-ignore
@@ -752,7 +751,6 @@ function SignerDialog({
             multisigClient.programId
         ).then((addrNonce) => setSigner(addrNonce[0].toString()));
     }, [multisig, multisigClient.programId, setSigner]);
-    console.log("signer", signer)
 
     return (
         <Dialog open={open} fullWidth onClose={onClose} maxWidth="md">
@@ -819,11 +817,6 @@ function AddTransactionDialog({
                     transaction.
                 </DialogContentText>
                 <List disablePadding>
-                    <ProgramUpdateListItem
-                        didAddTransaction={didAddTransaction}
-                        multisig={multisig}
-                        onClose={onClose}
-                    />
                     <SendLarixListItem
                         didAddTransaction={didAddTransaction}
                         multisig={multisig}
@@ -1219,10 +1212,6 @@ function SendLarixListItemDetails({
             (4 + 10) +
             1 +
             4; // TODO: tighter bound.
-        console.log("sendInstruction.data", sendInstruction.data)
-        console.log("data", data)
-        console.log("accs", accs)
-        console.log("txSize", txSize)
         const transaction = new Account();
         const tx = await multisigClient.rpc.createTransaction(
             sendInstruction.programId,
